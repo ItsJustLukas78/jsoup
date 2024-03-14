@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class TargetedAd {
 
     public static void main(String[] args) {
-        createTargetedAd("Lol", "targetWords.csv");
+        createTargetedAd("Buy our plastic shuttles for your badminton games! They are durable, long-lasting, and affordable!", "targetWords.csv");
     }
 
     public static void createTargetedAd(String advertisementString, String targetWordsFile)
@@ -45,7 +45,18 @@ public class TargetedAd {
             review.setMatchedTargetWords(matchedTargetWords);
 
             if (totalWeight > 0.0) {
-                relavantReviews.add(review);
+                // check if reviewer username already present, remove duplicates
+                boolean alreadyPresent = false;
+                for (Review relavantReview : relavantReviews) {
+                    if (relavantReview.getUsername().equals(review.getUsername())) {
+                        alreadyPresent = true;
+                        break;
+                    }
+                }
+
+                if (!alreadyPresent) {
+                    relavantReviews.add(review);
+                }
             }
         }
 

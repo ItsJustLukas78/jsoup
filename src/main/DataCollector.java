@@ -193,9 +193,9 @@ public class DataCollector
             {
                 String temp = sc.nextLine().trim();
                 String[] tempArray = temp.split(";");
-                System.out.println("To: " + tempArray[0] + "@gmail.com");
+                System.out.println("To: " + tempArray[0].substring(1) + "@gmail.com");
                 System.out.println("Subject: " + "Targeted Advertisement");
-                System.out.println("Body: " + "Dear " + tempArray[0] + ",\n" + tempArray[1] + "\n" + tempArray[2] + "\n" + tempArray[3] + "\n");
+                System.out.println("Body: " + "Dear " + tempArray[0].substring(1) + ",\n" + tempArray[1] + "\n" + tempArray[2] + "\n" + tempArray[3] + "\n");
             }
         } catch (Exception e) { System.out.println("Error reading or parsing" + targetWords + "\n" + e);
         }
